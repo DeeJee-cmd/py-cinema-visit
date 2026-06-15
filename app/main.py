@@ -1,6 +1,24 @@
-# write your imports here
+from cinema.bar import CinemaBar
+from cinema.hall import CinemaHall
+from people.customer import Customer
+from people.cinema_staff import Cleaner
 
 
 def cinema_visit(customers: list, hall_number: int, cleaner: str, movie: str):
-    # write you code here
-    pass
+    customers_list  = [
+        Customer(name=customer["name"], food=customer["food"])
+        for customer in customers]
+    cinema_hall = CinemaHall(hall_number=hall_number)
+    cinema_cleaner = Cleaner(name=cleaner)
+
+    for customer in customers_list:
+        CinemaBar.sell_product(
+            product=customer.food,
+            customer=customer
+        )
+
+    cinema_hall.movie_session(
+        movie_name=movie,
+        customers=customers_list,
+        cleaning_staff=cinema_cleaner,
+    )
