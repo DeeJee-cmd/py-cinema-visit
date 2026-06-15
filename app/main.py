@@ -9,7 +9,7 @@ def cinema_visit(
         hall_number: int,
         cleaner: str,
         movie: str) -> None:
-    customers_list  = [
+    customers_list = [
         Customer(name=customer["name"], food=customer["food"])
         for customer in customers]
     cinema_hall = CinemaHall(hall_number=hall_number)
